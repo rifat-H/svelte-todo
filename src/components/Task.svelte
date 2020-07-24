@@ -23,10 +23,10 @@
                 <div class="col-md-2 pl-0">
                     <div class="row">
                         <div class="col-md-6">
-                            <button class="btn btn-success">update</button>
+                            <button class="btn btn-success">Update</button>
                         </div>
                         <div class="col-md-6">
-                            <button class="btn btn-danger">delete</button>
+                            <button class="btn btn-danger">Delete</button>
                         </div>
                     </div>
                 </div>

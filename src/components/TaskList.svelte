@@ -1,5 +1,6 @@
 <script>
     import Task from "./Task.svelte";
+    import Tasks from "../stores/TaskStore.js";
 </script>
 
 <style>
@@ -8,8 +9,9 @@
 
 <!-- markup (zero or more items) goes here -->
 <div class="card mt-5 p-3">
-    <Task />
-    <Task />
-    <Task />
-    <Task />
+    {#each $Tasks as task (task.id)}
+        <Task />
+    {:else}
+         <h2 class="text-center">No Tasks Found</h2>
+    {/each}
 </div>
