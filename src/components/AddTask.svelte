@@ -1,5 +1,35 @@
 <script>
-    // your script goes here
+    import Tasks from "../stores/TaskStore.js";
+
+    let task = {
+        id: Math.random(),
+        task: '',
+        status: false,
+    };
+    let isValidated = true;
+
+    function handleAdd() {
+        isValidated = true;
+
+        // validate form
+        if (task.task.trim().length < 5) {
+            isValidated = false;
+        }
+
+        // add data
+        if (isValidated) {
+            let t = { ...task, id: Math.random() };
+
+            Tasks.update(CurrentTasks => {
+                return [t, ...CurrentTasks];
+            });
+        }
+
+        // clear task.task
+        // task.task = '';
+
+    }
+
 </script>
 
 <style>
@@ -12,10 +42,13 @@
         <div class="form-group row">
             <label for="newtask" class="col-sm-2 col-form-label">Add new task</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="newtask">
+                <input type="text" class="form-control" id="newtask" bind:value={task.task}>
+                {#if !isValidated}
+                     <span class="text-danger">Task cannot be less than 5 letter</span>
+                {/if}
             </div>
             <div class="col-md-1">
-                <button class="btn btn-primary">Add</button>
+                <button class="btn btn-primary" on:click={handleAdd}>Add</button>
             </div>
         </div>
     </div>
