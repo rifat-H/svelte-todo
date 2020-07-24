@@ -15,7 +15,7 @@
             <div class="form-group row">
 
                 <div class="col-md-1 pl-0">
-                    <input type="checkbox" class="form-control">
+                    <input type="checkbox" class="form-control" bind:checked={task.status}>
                 </div>
                 <div class="col-sm-9 pl-0">
                     <input type="text" class="form-control" id="staticEmail" bind:value="{task.task}">
