@@ -1,8 +1,9 @@
 <script>
-    export let task;
+    import { fly } from 'svelte/transition';
 
     import Tasks from "../stores/TaskStore.js";
 
+    export let task;
 
     function handleTaskDelete(id) {
         Tasks.update(CurrentTasks => {
@@ -17,7 +18,7 @@
 
 <!-- markup (zero or more items) goes here -->
 
-<div class="task">
+<div class="task" transition:fly="{{ x: 1000, duration: 500 }}">
     <div class="mt-3 mb-3">
         <div class="form-group">
 
