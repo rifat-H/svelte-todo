@@ -11,6 +11,11 @@ const Tasks = writable([
     status: true,
     task: "task 2",
   },
+  {
+    id: 3,
+    status: false,
+    task: "Update Button does nothing",
+  },
 ]);
 
 export default Tasks;
