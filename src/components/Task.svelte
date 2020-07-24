@@ -1,5 +1,5 @@
 <script>
-    // your script goes here
+    export let task;
 </script>
 
 <style>
@@ -18,7 +18,7 @@
                     <input type="checkbox" class="form-control">
                 </div>
                 <div class="col-sm-9 pl-0">
-                    <input type="text" class="form-control" id="staticEmail" value="email@example.com">
+                    <input type="text" class="form-control" id="staticEmail" bind:value="{task.task}">
                 </div>
                 <div class="col-md-2 pl-0">
                     <div class="row">

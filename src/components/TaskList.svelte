@@ -10,8 +10,8 @@
 <!-- markup (zero or more items) goes here -->
 <div class="card mt-5 p-3">
     {#each $Tasks as task (task.id)}
-        <Task />
+        <Task {task}/>
     {:else}
-         <h2 class="text-center">No Tasks Found</h2>
+         <h2 class="text-center" >No Tasks Found</h2>
     {/each}
 </div>
