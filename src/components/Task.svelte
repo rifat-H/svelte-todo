@@ -1,5 +1,14 @@
 <script>
     export let task;
+
+    import Tasks from "../stores/TaskStore.js";
+
+
+    function handleTaskDelete(id) {
+        Tasks.update(CurrentTasks => {
+            return CurrentTasks.filter(task => task.id != id);
+        });
+    }
 </script>
 
 <style>
@@ -26,7 +35,7 @@
                             <button class="btn btn-success">Update</button>
                         </div>
                         <div class="col-md-6">
-                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-danger" on:click={()=>handleTaskDelete(task.id)}>Delete</button>
                         </div>
                     </div>
                 </div>
