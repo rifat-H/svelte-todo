@@ -1,14 +1,10 @@
 <script>
-	import AddTask from './components/AddTask.svelte';
-	import TaskList from './components/TaskList.svelte';
+	import Index from './pages/index.svelte';
 </script>
 
 
 <div class="container">
-
-	<AddTask />
-	<TaskList />
-
+	<Index />
 </div>
 
 
