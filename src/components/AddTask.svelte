@@ -21,23 +21,15 @@
         if (isValidated) {
 
             // api code
-            let t;
-
-            console.log(task.name);
             axios.post(config.API_URL + "task", {
                 name: task.name
             })
                 .then(function (response) {
-                    t = response.data.task;
-                    console.log(t);
 
                     // update local store
-
                     Tasks.update(CurrentTasks => {
-                        return [t, ...CurrentTasks];
+                        return [response.data.task, ...CurrentTasks];
                     });
-
-
 
                 })
                 .catch(function (error) {
