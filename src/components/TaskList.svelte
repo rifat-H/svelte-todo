@@ -2,7 +2,6 @@
     import Task from "./Task.svelte";
     import Tasks from "../stores/TaskStore.js";
     import ShowState from "../stores/ShowStateStore.js";
-
 </script>
 
 <style>
@@ -13,15 +12,16 @@
 <div class="card mt-5 p-3">
     {#each $Tasks as task (task.id)}
 
-        {#if $ShowState != 2}
-        
+        {#if $ShowState == 1 || $ShowState == 0}
+
             {#if task.status == $ShowState}
-                <Task {task}/>
+                <Task {task} />
             {/if}
 
-            {:else}
+        {:else}
             <Task {task} />
         {/if}
+
 
     {:else}
          <h2 class="text-center" >No Tasks Found</h2>
