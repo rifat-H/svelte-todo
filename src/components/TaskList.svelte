@@ -22,7 +22,6 @@
             <Task {task} />
         {/if}
 
-
     {:else}
          <h2 class="text-center" >No Tasks Found</h2>
     {/each}
