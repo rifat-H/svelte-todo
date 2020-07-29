@@ -1,6 +1,6 @@
 const config = {
-  app_name: "ToDo - svelte",
-  api_url: "http://localhost:8000/api/",
+  APP_NAME: "ToDo - svelte",
+  API_URL: "http://localhost:8000/api/",
 };
 
 export default config;
