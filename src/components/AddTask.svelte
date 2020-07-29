@@ -41,7 +41,7 @@
         <div class="form-group row">
             <label for="newtask" class="col-sm-2 col-form-label">Add new task</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="newtask" bind:value={task.task} >
+                <input type="text" class="form-control" id="newtask" bind:value={task.task}>
                 {#if !isValidated}
                      <span class="text-danger">Task cannot be less than 5 letter</span>
                 {/if}
