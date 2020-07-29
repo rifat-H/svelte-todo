@@ -1,5 +1,5 @@
 const config = {
-  APP_NAME: "ToDo - svelte",
+  APP_NAME: "ToDo - Svelte",
   API_URL: "http://localhost:8000/api/",
 };
 
