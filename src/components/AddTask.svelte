@@ -2,7 +2,7 @@
     import Tasks from "../stores/TaskStore.js";
 
     let task = {
-        task: '',
+        name: '',
         status: false,
     };
     let isValidated = true;

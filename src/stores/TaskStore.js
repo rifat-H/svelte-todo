@@ -1,21 +1,29 @@
 import { writable } from "svelte/store";
+import config from "../../config";
+import axios from "axios";
 
-const Tasks = writable([
+let tasks = [
   {
-    id: 1,
-    status: false,
-    task: "task 1",
+    id: 500,
+    name: "task 1",
+    status: 0,
   },
-  {
-    id: 2,
-    status: true,
-    task: "task 2",
-  },
-  {
-    id: 3,
-    status: false,
-    task: "Update Button does nothing",
-  },
-]);
+];
+
+axios
+  .get(config.API_URL + "task")
+  .then(function (response) {
+    response.data.tasks.forEach((task) => {
+      tasks.push(task);
+      tasks = tasks;
+    });
+  })
+  .catch(function (error) {
+    console.log("something went wrong");
+  });
+
+console.log(tasks);
+
+const Tasks = writable(tasks);
 
 export default Tasks;

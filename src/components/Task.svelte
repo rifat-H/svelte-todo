@@ -28,7 +28,7 @@
                     <input type="checkbox" class="form-control" bind:checked={task.status}>
                 </div>
                 <div class="col-sm-9 pl-0">
-                    <input type="text" class="form-control" id="staticEmail" bind:value="{task.task}"
+                    <input type="text" class="form-control" id="staticEmail" bind:value="{task.name}"
                         disabled="{task.status}">
                 </div>
                 <div class="col-md-2 pl-0">
