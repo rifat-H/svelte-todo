@@ -1,5 +1,5 @@
-import { writable } from "svelte/store";
 import config from "../../config";
+import { writable } from "svelte/store";
 import axios from "axios";
 
 let tasks = [];

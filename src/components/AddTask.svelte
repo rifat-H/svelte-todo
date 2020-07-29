@@ -1,4 +1,6 @@
 <script>
+    import axios from "axios";
+    import config from "../../config";
     import Tasks from "../stores/TaskStore.js";
 
     let task = {
@@ -11,21 +13,41 @@
         isValidated = true;
 
         // validate form
-        if (task.task.trim().length < 5) {
+        if (task.name.trim().length < 5) {
             isValidated = false;
         }
 
         // add data
         if (isValidated) {
-            let t = { ...task, id: Math.random() };
 
-            Tasks.update(CurrentTasks => {
-                return [t, ...CurrentTasks];
-            });
+            // api code
+            let t;
+
+            console.log(task.name);
+            axios.post(config.API_URL + "task", {
+                name: task.name
+            })
+                .then(function (response) {
+                    t = response.data.task;
+                    console.log(t);
+
+                    // update local store
+
+                    Tasks.update(CurrentTasks => {
+                        return [t, ...CurrentTasks];
+                    });
+
+
+
+                })
+                .catch(function (error) {
+                    console.log("something went wrong");
+                })
+
+            // clear task.task
+            task.name = '';
+
         }
-
-        // clear task.task
-        task.task = '';
 
     }
 
@@ -41,7 +63,7 @@
         <div class="form-group row">
             <label for="newtask" class="col-sm-2 col-form-label">Add new task</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="newtask" bind:value={task.task}>
+                <input type="text" class="form-control" id="newtask" bind:value={task.name}>
                 {#if !isValidated}
                      <span class="text-danger">Task cannot be less than 5 letter</span>
                 {/if}
