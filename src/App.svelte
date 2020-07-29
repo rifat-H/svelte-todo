@@ -2,6 +2,9 @@
 	import Index from './pages/index.svelte';
 </script>
 
+<!-- <svelte:head>
+	<title>{html_title}</title>
+</svelte:head> -->
 
 <div class="container">
 	<Index />
