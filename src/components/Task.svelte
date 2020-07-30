@@ -25,6 +25,29 @@
             })
     }
 
+    function handleTaskUpdate(task) {
+
+        Tasks.update(CurrentTasks => {
+            // let tsk = CurrentTasks.filter(t => t.id == task.id);
+            let dtasks = CurrentTasks.filter(t => t.id != task.id);
+            // tsk = task;
+            return [...dtasks, task];
+        });
+
+
+        // api code
+        axios.put(config.API_URL + "task/" + task.id, {
+            name: task.name,
+            status: task.status
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log("something went wrong");
+            })
+    }
+
 </script>
 
 <style>
@@ -49,7 +72,8 @@
             <div class="form-group row">
 
                 <div class="col-md-1 pl-0">
-                    <input type="checkbox" class="form-control" bind:checked={task.status}>
+                    <input type="checkbox" class="form-control" bind:checked={task.status}
+                        on:change={()=>handleTaskUpdate(task)}>
                 </div>
                 <div class="col-sm-9 pl-0">
                     <input type="text" class="form-control" id="staticEmail" bind:value="{task.name}"
@@ -58,7 +82,7 @@
                 <div class="col-md-2 pl-0 task-control">
                     <div class="row">
                         <div class="col-md-6">
-                            <button class="btn btn-success">Update</button>
+                            <button class="btn btn-success" on:click={()=>handleTaskUpdate(task) }>Update</button>
                         </div>
                         <div class="col-md-6">
                             <button class="btn btn-danger" on:click={()=>handleTaskDelete(task.id)}>Delete</button>
