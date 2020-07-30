@@ -1,6 +1,5 @@
 <script>
-    import Filter from '../components/Filter.svelte';
-    import AddTask from '../components/AddTask.svelte';
+    import TopControls from '../components/TopControls.svelte';
     import TaskList from '../components/TaskList.svelte';
 </script>
 
@@ -9,6 +8,5 @@
 </style>
 
 <!-- markup (zero or more items) goes here -->
-<Filter />
-<AddTask />
+<TopControls />
 <TaskList />
