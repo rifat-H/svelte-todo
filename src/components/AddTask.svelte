@@ -48,6 +48,11 @@
 
     }
 
+    function handleEnter(event) {
+        if (event.key === 'Enter') {
+            handleAdd();
+        }
+    }
 </script>
 
 <style>
@@ -60,13 +65,14 @@
         <div class="form-group row">
             <label for="newtask" class="col-sm-2 col-form-label">Add new task</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="newtask" bind:value={task.name}>
+                <input type="text" class="form-control" id="newtask" on:keydown={handleEnter} bind:value={task.name}>
                 {#if !isValidated}
                      <span class="text-danger">Task cannot be less than 5 letter</span>
                 {/if}
             </div>
             <div class="col-md-1">
-                <button class="btn btn-primary" on:click={handleAdd}>Add</button>
+                <!-- <button class="btn btn-primary" on:click={handleAdd}>Add</button> -->
+                <button class="btn btn-primary">Add</button>
             </div>
         </div>
     </div>
