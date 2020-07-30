@@ -23,12 +23,21 @@
             .catch(function (error) {
                 console.log("something went wrong");
             })
-
     }
+
 </script>
 
 <style>
-    /* your styles go here */
+    .task-control {
+        display: none;
+        transition: all linear .3s;
+
+    }
+
+    .task:hover .task-control {
+        transition: all linear .3s;
+        display: block;
+    }
 </style>
 
 <!-- markup (zero or more items) goes here -->
@@ -46,7 +55,7 @@
                     <input type="text" class="form-control" id="staticEmail" bind:value="{task.name}"
                         disabled="{task.status}">
                 </div>
-                <div class="col-md-2 pl-0">
+                <div class="col-md-2 pl-0 task-control">
                     <div class="row">
                         <div class="col-md-6">
                             <button class="btn btn-success">Update</button>

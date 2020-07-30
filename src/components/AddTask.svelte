@@ -65,7 +65,8 @@
         <div class="form-group row">
             <label for="newtask" class="col-sm-2 col-form-label">Add new task</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="newtask" on:keydown={handleEnter} bind:value={task.name}>
+                <input type="text" class="form-control" placeholder="Enter New Task" id="newtask"
+                    on:keydown={handleEnter} bind:value={task.name}>
                 {#if !isValidated}
                      <span class="text-danger">Task cannot be less than 5 letter</span>
                 {/if}
