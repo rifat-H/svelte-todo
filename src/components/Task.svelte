@@ -1,6 +1,11 @@
 <script>
+    import axios from "axios";
     import { fly } from 'svelte/transition';
 
+    // config
+    import config from "../../config";
+
+    // store
     import Tasks from "../stores/TaskStore.js";
 
     export let task;
@@ -9,6 +14,16 @@
         Tasks.update(CurrentTasks => {
             return CurrentTasks.filter(task => task.id != id);
         });
+
+        // api code 
+        axios.delete(config.API_URL + "task/" + id)
+            .then(function (response) {
+                // console.log(response);
+            })
+            .catch(function (error) {
+                console.log("something went wrong");
+            })
+
     }
 </script>
 
