@@ -33,7 +33,7 @@
 
 <!-- markup (zero or more items) goes here -->
 
-<div class="task" transition:fly="{{ x: 1000, duration: 500 }}">
+<div class="task" transition:fly="{{ y: 1000, duration: 400 }}">
     <div class="mt-3 mb-3">
         <div class="form-group">
 

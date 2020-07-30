@@ -71,8 +71,7 @@
                 {/if}
             </div>
             <div class="col-md-1">
-                <!-- <button class="btn btn-primary" on:click={handleAdd}>Add</button> -->
-                <button class="btn btn-primary">Add</button>
+                <button class="btn btn-primary" on:click={handleAdd}>Add</button>
             </div>
         </div>
     </div>
