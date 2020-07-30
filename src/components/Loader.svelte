@@ -1,4 +1,6 @@
 <script>
+    // stores
+    import { showLoader } from "../stores/ShowStateStore.js";
 </script>
 
 <style>
@@ -13,8 +15,10 @@
     }
 </style>
 
-<div class="loader d-flex justify-content-center align-items-center">
-    <div class="image ">
-        <img src="images/loader.gif" alt="background image" />
+{#if $showLoader}
+    <div class="loader d-flex justify-content-center align-items-center">
+        <div class="image ">
+            <img src="images/loader.gif" alt="background image" />
+        </div>
     </div>
-</div>
+{/if}

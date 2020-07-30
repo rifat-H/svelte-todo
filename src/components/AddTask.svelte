@@ -1,7 +1,10 @@
 <script>
     import axios from "axios";
+    // config
     import config from "../../config";
+    // stores
     import Tasks from "../stores/TaskStore.js";
+    import { showLoader } from "../stores/ShowStateStore.js";
 
     let task = {
         name: '',
@@ -19,6 +22,7 @@
 
         // add data
         if (isValidated) {
+            showLoader.update(s => 1);
 
             // api code
             axios.post(config.API_URL + "task", {
@@ -28,7 +32,7 @@
 
                     // update local store
                     Tasks.update(CurrentTasks => {
-                        return [response.data.task, ...CurrentTasks];
+                        return [...CurrentTasks, response.data.task];
                     });
 
                 })
@@ -38,6 +42,7 @@
 
             // clear task.task
             task.name = '';
+            showLoader.update(s => 0);
 
         }
 

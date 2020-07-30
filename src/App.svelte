@@ -1,16 +1,11 @@
 <script>
-
 	// config
 	import config from "../config.js";
-
-	// stores
-	import showLoader from "./stores/ShowStateStore.js";
 
 	// components
 	import Index from './pages/index.svelte';
 	import Loader from './components/Loader.svelte';
 
-	console.log(showLoader);
 </script>
 
 <svelte:head>
