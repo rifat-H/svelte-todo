@@ -28,9 +28,7 @@
     function handleTaskUpdate(task) {
 
         Tasks.update(CurrentTasks => {
-            // let tsk = CurrentTasks.filter(t => t.id == task.id);
             let dtasks = CurrentTasks.filter(t => t.id != task.id);
-            // tsk = task;
             return [...dtasks, task];
         });
 
@@ -65,7 +63,7 @@
 
 <!-- markup (zero or more items) goes here -->
 
-<div class="task" transition:fly="{{ y: 1000, duration: 400 }}">
+<div class="task" transition:fly="{{ x: 1000, duration: 300 }}">
     <div class="mt-3 mb-3">
         <div class="form-group">
 
