@@ -23,7 +23,7 @@
     "svelte-preprocess": "^4.0.8"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "sirv-cli": "^0.4.4"
   }
 }
